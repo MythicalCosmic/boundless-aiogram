@@ -1,0 +1,2 @@
+[console_scripts]
+airoframework = airoframework.cli:create_project
