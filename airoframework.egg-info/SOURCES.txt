@@ -1,4 +1,5 @@
 MANIFEST.in
+README.md
 setup.py
 airoframework/__init__.py
 airoframework/cli.py
@@ -6,13 +7,16 @@ airoframework.egg-info/PKG-INFO
 airoframework.egg-info/SOURCES.txt
 airoframework.egg-info/dependency_links.txt
 airoframework.egg-info/entry_points.txt
+airoframework.egg-info/requires.txt
 airoframework.egg-info/top_level.txt
+airoframework/template/.env
 airoframework/template/README.md
 airoframework/template/database.db
 airoframework/template/main.py
 airoframework/template/config/config.py
 airoframework/template/config/settings.py
 airoframework/template/handlers/handlers.py
+airoframework/template/handlers/states.py
 airoframework/template/keyboards/keyboards.py
 airoframework/template/languages/en.yaml
 airoframework/template/languages/uz.yaml
