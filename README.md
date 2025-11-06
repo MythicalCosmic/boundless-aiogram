@@ -241,7 +241,7 @@ This project is licensed under the MIT License.
 
 ## 🔗 Links
 
-- **GitHub**: [github.com/yourusername/boundless-aiogram](https://github.com/yourMythicalCosmic/boundless-aiogram)
+- **GitHub**: [github.com/MythicalCosmic/boundless-aiogram](https://github.com/yourMythicalCosmic/boundless-aiogram)
 - **PyPI**: [pypi.org/project/boundless-aiogram](https://pypi.org/project/boundless-aiogram)
 
 ---
