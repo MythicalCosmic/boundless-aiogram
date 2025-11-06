@@ -1,22 +1,20 @@
 from setuptools import setup, find_packages
-import os
 
-0
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="airoframework",
-    version="1.0.2",
+    name="boundless-aiogram",  
+    version="1.0.4",  
     author="MythicalCosmic",
-    author_email="qodirjonov0854@gmail.com",  
-    description="AiroFramework - A structured framework for Aiogram bots",
+    author_email="qodirjonov0854@gmail.com",
+    description="Boundless Aiogram - A structured, fast, and scalable framework for Telegram bots using Aiogram",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/MythicalCosmic/airoframework",
+    url="https://github.com/MythicalCosmic/boundless-aiogram", 
     project_urls={
-        "Bug Tracker": "https://github.com/MythicalCosmic/airoframework/issues",
-        "Documentation": "https://github.com/MythicalCosmic/airoframework/wiki",
+        "Bug Tracker": "https://github.com/MythicalCosmic/boundless-aiogram/issues",
+        "Documentation": "https://github.com/MythicalCosmic/boundless-aiogram/wiki",
     },
     license="MIT",
     packages=find_packages(),
@@ -31,11 +29,11 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "airoframework=airoframework.cli:create_project",
+            "boundless=boundless_aiogram.cli:create_project",
         ],
     },
     package_data={
-        "airoframework": ["template/**/*"],  
+        "boundless_aiogram": ["template/**/*"],  
     },
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -48,6 +46,7 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Communications :: Chat",
     ],
     python_requires=">=3.8",
 )

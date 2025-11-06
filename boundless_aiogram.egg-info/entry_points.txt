@@ -1,0 +1,2 @@
+[console_scripts]
+boundless = boundless_aiogram.cli:create_project

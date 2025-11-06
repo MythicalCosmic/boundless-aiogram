@@ -1,0 +1,10 @@
+README.md
+setup.py
+boundless-aiogram/__init__.py
+boundless-aiogram/cli.py
+boundless_aiogram.egg-info/PKG-INFO
+boundless_aiogram.egg-info/SOURCES.txt
+boundless_aiogram.egg-info/dependency_links.txt
+boundless_aiogram.egg-info/entry_points.txt
+boundless_aiogram.egg-info/requires.txt
+boundless_aiogram.egg-info/top_level.txt

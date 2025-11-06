@@ -1,3 +1,0 @@
-include README.md
-include airoframework/template/*
-recursive-include airoframework/template *
