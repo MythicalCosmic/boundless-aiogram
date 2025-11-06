@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="boundless-aiogram",  
-    version="1.0.4",  
+    version="1.0.6",  
     author="MythicalCosmic",
     author_email="qodirjonov0854@gmail.com",
-    description="Boundless Aiogram - A structured, fast, and scalable framework for Telegram bots using Aiogram",
+    description="A modern, production-ready framework for building scalable Telegram bots with Aiogram 3.x",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/MythicalCosmic/boundless-aiogram", 
@@ -21,32 +21,30 @@ setup(
     include_package_data=True,
     install_requires=[
         "aiogram>=3.0.0",
-        "fastapi>=0.70.0",
-        "uvicorn>=0.15.0",
-        "sqlalchemy>=2.0",
         "alembic>=1.7",
-        "python-dotenv>=1.0.0"
+        "pyyaml",
+        "sqlalchemy>=2.0",
+        "python-dotenv>=1.0.0",
+        "aiosqlite" 
     ],
     entry_points={
         "console_scripts": [
-            "boundless=boundless_aiogram.cli:create_project",
+            "boundless=boundless_aiogram.cli:main",  
         ],
-    },
-    package_data={
-        "boundless_aiogram": ["template/**/*"],  
     },
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
-        "Topic :: Software Development :: Libraries",
-        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Topic :: Software Development :: Libraries :: Application Frameworks",
         "Topic :: Communications :: Chat",
+        "Framework :: AsyncIO",
     ],
     python_requires=">=3.8",
 )
