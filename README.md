@@ -1,27 +1,41 @@
-# Boundless-Aiogram 🚀
+# boundless-aiogram
 
+> Production-ready Telegram bot framework with CLI scaffolding — powering bots with 1000s of users
 
-**Boundless-Aiogram** is a modern, production-ready framework/template for building scalable **Telegram bots** with **Aiogram 3.x**. It provides a clean, structured architecture with built-in support for **async/await**, **database 
-migrations**, **FSM**, and more.
+[![PyPI version](https://badge.fury.io/py/boundless-aiogram.svg)](https://pypi.org/project/boundless-aiogram/)
+[![Downloads](https://static.pepy.tech/badge/boundless-aiogram)](https://pepy.tech/project/boundless-aiogram)
+[![Python](https://img.shields.io/pypi/pyversions/boundless-aiogram)](https://pypi.org/project/boundless-aiogram/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## ✨ Features
+**boundless-aiogram** is a battle-tested bot framework built on top of aiogram 3.x. It provides a complete project structure, CLI tools, and best practices out of the box — so you can focus on building features, not boilerplate.
 
-- ⚡ **Modern async/await** syntax with Aiogram 3.x
-- 🗄 **SQLAlchemy async ORM** for database operations
-- 🔄 **Alembic migrations** for database versioning
-- 📂 **Modular architecture** with organized handlers, middlewares, and filters
-- 🎯 **FSM (Finite State Machine)** support for conversation flows
-- 🛡️ **Built-in middleware** for authentication and rate limiting
-- ⚙️ **Configuration management** with environment variables
-- 📝 **Comprehensive logging** system with file rotation
-- 🧪 **Test-ready** structure with dedicated test directory
-- 🎨 **Modern CLI** with beautiful output and progress indicators
+**2,000+ downloads** and counting. Used in production bots serving **thousands of users**.
 
 ---
 
-## 🚀 Installation
+## 🚀 Bots Built With This Framework
 
-Install Boundless-Aiogram via pip:
+| Bot | Users | Monthly Activity |
+|-----|-------|------------------|
+| Smart English HR | 1,200+ | 100+ applications |
+| Cake Bot | 200+ | Active daily |
+| + More in production | — | — |
+
+---
+
+## ✨ Features
+
+- 🛠️ **CLI Scaffolding** — Generate new bot projects instantly
+- 📁 **Production Structure** — Organized handlers, database, utils, languages
+- 🗄️ **Database Layer** — SQLAlchemy + Alembic migrations built-in
+- 🌍 **Multi-language** — i18n support out of the box
+- ⚙️ **Core Module** — Config and middleware ready to go
+- 🧪 **Test Setup** — Testing structure included
+- 📤 **File Uploads** — Upload handling utilities
+
+---
+
+## 📦 Installation
 
 ```bash
 pip install boundless-aiogram
@@ -29,95 +43,120 @@ pip install boundless-aiogram
 
 ---
 
-## 📦 Quick Start
+## 🚀 Quick Start
 
-Create a new bot project with a single command:
-
-```bash
-boundless new mybot
-```
-
-Navigate to your project and set up:
+### Create a New Bot Project
 
 ```bash
-cd mybot
+# Generate new project
+boundless-aiogram init my-awesome-bot
+
+# Navigate to project
+cd my-awesome-bot
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure environment
 cp .env.example .env
-# Edit .env and add your BOT_TOKEN
+# Edit .env with your bot token
+
+# Run migrations
+alembic upgrade head
+
+# Start your bot
 python main.py
 ```
 
-That's it! Your bot is now running.
+That's it. You're ready to build.
 
 ---
 
-## 🏗️ Project Structure
-
-Boundless-Aiogram generates a clean, organized project structure:
+## 📁 Generated Project Structure
 
 ```
-mybot/
-├── bot/
-│   ├── handlers/          # Message and callback handlers
-│   │   ├── commands.py    # Command handlers (/start, /help)
-│   │   ├── messages.py    # Text message handlers
-│   │   └── callbacks.py   # Callback query handlers
-│   ├── middlewares/       # Custom middlewares
-│   │   ├── auth.py        # Authentication middleware
-│   │   └── throttling.py  # Rate limiting middleware
-│   ├── filters/           # Custom filters
-│   │   └── custom.py      # Custom filter examples
-│   ├── keyboards/         # Keyboard layouts
-│   │   ├── inline.py      # Inline keyboards
-│   │   └── reply.py       # Reply keyboards
-│   └── states/            # FSM states
-│       └── user.py        # User conversation states
-├── database/
-│   ├── models/            # Database models
-│   │   ├── base.py        # Base model class
-│   │   └── user.py        # User model
-│   └── database.py        # Database configuration
-├── core/
-│   ├── config.py          # Configuration management
-│   └── logging.py         # Logging setup
-├── utils/                 # Helper functions
-│   └── helpers.py         # Utility functions
-├── migrations/            # Alembic database migrations
-├── tests/                 # Unit tests
-├── logs/                  # Log files
-├── main.py                # Bot entry point
-├── .env.example           # Example environment variables
-├── .gitignore
-├── requirements.txt
-└── README.md
-```
-
----
-
-## 🔧 Configuration
-
-Configure your bot using environment variables in `.env`:
-
-```env
-# Telegram Bot Configuration
-BOT_TOKEN=your_bot_token_here
-
-# Database Configuration
-DATABASE_URL=sqlite+aiosqlite:///./bot_database.db
-
-# Optional: PostgreSQL
-# DATABASE_URL=postgresql+asyncpg://user:password@localhost/dbname
-
-# Admin User IDs (comma-separated)
-ADMIN_IDS=123456789,987654321
+my-awesome-bot/
+│
+├── bot/                    # Bot handlers and logic
+│   ├── handlers/          # Message & callback handlers
+│   ├── keyboards/         # Inline & reply keyboards
+│   ├── states/            # FSM states
+│   └── filters/           # Custom filters
+│
+├── core/                   # Core configuration
+│   ├── config.py          # Settings management
+│   └── middleware.py      # Bot middleware
+│
+├── database/               # Database layer
+│   ├── models.py          # SQLAlchemy models
+│   ├── crud.py            # CRUD operations
+│   └── session.py         # DB session management
+│
+├── languages/              # Internationalization
+│   ├── en.py              # English
+│   ├── uz.py              # Uzbek
+│   └── ru.py              # Russian
+│
+├── migrations/             # Alembic migrations
+│   └── versions/          # Migration files
+│
+├── utils/                  # Utility functions
+│   └── helpers.py         # Common helpers
+│
+├── tests/                  # Test suite
+│
+├── main.py                 # Entry point
+├── alembic.ini            # Alembic config
+├── requirements.txt        # Dependencies
+├── .env.example           # Environment template
+└── .gitignore             # Git ignore
 ```
 
 ---
 
-## 📚 Usage Examples
+## 🛠️ CLI Commands
 
-### Adding a New Command Handler
+| Command | Description |
+|---------|-------------|
+| `boundless-aiogram init <name>` | Create new bot project |
+| `boundless-aiogram --version` | Show version |
+| `boundless-aiogram --help` | Show help |
 
-Create or edit `bot/handlers/commands.py`:
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────┐
+│          BOUNDLESS-AIOGRAM STRUCTURE            │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│   ┌─────────────────────────────────────────┐   │
+│   │                BOT                      │   │
+│   │   Handlers • Keyboards • States         │   │
+│   └────────────────────┬────────────────────┘   │
+│                        │                        │
+│   ┌────────────────────▼────────────────────┐   │
+│   │               CORE                      │   │
+│   │       Config • Middleware               │   │
+│   └────────────────────┬────────────────────┘   │
+│                        │                        │
+│   ┌────────┬───────────┴───────────┬────────┐   │
+│   │        │                       │        │   │
+│   ▼        ▼                       ▼        ▼   │
+│ ┌──────┐ ┌────────┐ ┌───────────┐ ┌──────┐    │
+│ │Utils │ │Database│ │ Languages │ │Tests │    │
+│ │      │ │Alembic │ │   i18n    │ │      │    │
+│ └──────┘ └────────┘ └───────────┘ └──────┘    │
+│                                                 │
+└─────────────────────────────────────────────────┘
+```
+
+---
+
+## 📖 Usage Examples
+
+### Basic Handler
 
 ```python
 from aiogram import Router
@@ -126,134 +165,168 @@ from aiogram.types import Message
 
 router = Router()
 
-@router.message(Command("hello"))
-async def cmd_hello(message: Message):
-    await message.answer(f"Hello, {message.from_user.first_name}!")
+@router.message(Command("start"))
+async def cmd_start(message: Message):
+    await message.answer("Welcome! 🚀")
 ```
 
-### Creating Custom Middleware
-
-Edit `bot/middlewares/auth.py`:
+### Using Database
 
 ```python
-from typing import Callable, Dict, Any, Awaitable
-from aiogram import BaseMiddleware
-from aiogram.types import Message
+from database.crud import create_user, get_user
+from database.session import get_session
 
-class AuthMiddleware(BaseMiddleware):
-    async def __call__(
-        self,
-        handler: Callable[[Message, Dict[str, Any]], Awaitable[Any]],
-        event: Message,
-        data: Dict[str, Any]
-    ) -> Any:
-        # Your authentication logic here
-        user_id = event.from_user.id
-        # Check if user is authorized
-        return await handler(event, data)
+async def register_user(telegram_id: int, name: str):
+    async with get_session() as session:
+        user = await create_user(session, telegram_id, name)
+        return user
 ```
 
-### Using FSM States
+### Multi-language Support
 
-Define states in `bot/states/user.py`:
+```python
+from languages import get_text
+
+async def greet(message: Message, lang: str = "en"):
+    text = get_text("welcome", lang)
+    await message.answer(text)
+```
+
+### FSM States
 
 ```python
 from aiogram.fsm.state import State, StatesGroup
 
 class RegistrationStates(StatesGroup):
-    waiting_for_name = State()
-    waiting_for_age = State()
-    waiting_for_email = State()
-```
-
-Use in handlers:
-
-```python
-from aiogram.fsm.context import FSMContext
-from bot.states.user import RegistrationStates
-
-@router.message(Command("register"))
-async def start_registration(message: Message, state: FSMContext):
-    await state.set_state(RegistrationStates.waiting_for_name)
-    await message.answer("What's your name?")
-
-@router.message(RegistrationStates.waiting_for_name)
-async def process_name(message: Message, state: FSMContext):
-    await state.update_data(name=message.text)
-    await state.set_state(RegistrationStates.waiting_for_age)
-    await message.answer("How old are you?")
+    first_name = State()
+    last_name = State()
+    phone = State()
 ```
 
 ---
 
-## 🗄️ Database Management
+## ⚙️ Configuration
 
-### Creating Migrations
+### Environment Variables
 
-After modifying your models:
+```env
+# Bot
+BOT_TOKEN=your-bot-token-from-botfather
 
-```bash
-alembic revision --autogenerate -m "Added new field"
+# Database
+DATABASE_URL=postgresql://user:pass@localhost:5432/mybot
+# Or SQLite:
+# DATABASE_URL=sqlite:///bot.db
+
+# Settings
+ADMIN_IDS=123456789,987654321
+DEFAULT_LANGUAGE=en
+DEBUG=False
 ```
 
-### Applying Migrations
+---
+
+## 🗄️ Database Migrations
 
 ```bash
+# Create new migration
+alembic revision --autogenerate -m "Add users table"
+
+# Apply all migrations
 alembic upgrade head
-```
 
-### Rolling Back
-
-```bash
+# Rollback one step
 alembic downgrade -1
+
+# View current version
+alembic current
 ```
 
 ---
 
 ## 🧪 Testing
 
-Run tests using pytest:
-
 ```bash
-pytest tests/
+# Run tests
+pytest
+
+# With coverage
+pytest --cov=bot --cov=database
 ```
 
 ---
 
-## 📖 CLI Commands
+## 🚀 Deployment
 
-```bash
-boundless new <project_name>    # Create a new bot project
-boundless help                  # Show help information
+### systemd (Linux)
+
+```ini
+[Unit]
+Description=My Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/path/to/my-bot
+ExecStart=/path/to/venv/bin/python main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
 ```
+
+### Docker
+
+```dockerfile
+FROM python:3.12-slim
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "main.py"]
+```
+
+---
+
+## 📊 Why boundless-aiogram?
+
+| Feature | boundless-aiogram | Starting from scratch |
+|---------|-------------------|----------------------|
+| Project setup | `1 command` | 30+ minutes |
+| Database layer | ✅ Included | Manual setup |
+| Migrations | ✅ Alembic ready | Manual setup |
+| Multi-language | ✅ Built-in | Manual setup |
+| Best practices | ✅ Enforced | Hope for the best |
+| Production tested | ✅ 1000s of users | Unknown |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/NewFeature`)
+3. Commit changes (`git commit -m 'Add NewFeature'`)
+4. Push to branch (`git push origin feature/NewFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🔗 Links
+## 📞 Support
 
-- **GitHub**: [github.com/MythicalCosmic/boundless-aiogram](https://github.com/yourMythicalCosmic/boundless-aiogram)
-- **PyPI**: [pypi.org/project/boundless-aiogram](https://pypi.org/project/boundless-aiogram)
-
----
-
-## 💡 Support
-
-If you find this project helpful, consider giving it a ⭐ on GitHub!
-
-For issues and feature requests, please use the [GitHub issue tracker](https://github.com/MythicalCosmic/boundless-aiogram/issues).
+- **Issues:** [GitHub Issues](https://github.com/MythicalCosmic/boundless-aiogram/issues)
+- **PyPI:** [pypi.org/project/boundless-aiogram](https://pypi.org/project/boundless-aiogram/)
 
 ---
 
-**Built with ❤️ for the Telegram bot development community**
+**Stop writing boilerplate. Start building bots.**
