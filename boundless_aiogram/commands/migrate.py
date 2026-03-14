@@ -10,13 +10,12 @@ from boundless_aiogram.core.config import load_config
 def _get_project_root() -> str:
     root = find_project_root()
     if not root:
-        print_error("Not inside a Boundless project")
+        print_error("Not inside a Boundless project.")
         sys.exit(1)
 
     config = load_config(root)
-    if config and not config.get("use_migrations"):
-        print_error("Migrations are not enabled for this project")
-        print_info("Recreate the project with migrations enabled")
+    if config and config.get("database") == "django":
+        print_error("This project uses Django ORM. Use 'python manage.py migrate' instead.")
         sys.exit(1)
 
     return root
@@ -33,9 +32,9 @@ def cmd_makemigrations(message: Optional[str] = None):
     )
 
     if success:
-        print_success("Migration created")
+        print_success("Migration created.")
     else:
-        print_error("Failed to create migration")
+        print_error("Failed to create migration.")
         sys.exit(1)
 
 
@@ -46,9 +45,9 @@ def cmd_migrate():
     success = run_command(["alembic", "upgrade", "head"], cwd=root)
 
     if success:
-        print_success("Migrations applied")
+        print_success("Migrations applied.")
     else:
-        print_error("Migration failed")
+        print_error("Migration failed.")
         sys.exit(1)
 
 
@@ -59,9 +58,9 @@ def cmd_rollback():
     success = run_command(["alembic", "downgrade", "-1"], cwd=root)
 
     if success:
-        print_success("Rollback complete")
+        print_success("Rollback complete.")
     else:
-        print_error("Rollback failed")
+        print_error("Rollback failed.")
         sys.exit(1)
 
 
@@ -78,7 +77,7 @@ def cmd_flush():
         sys.exit(0)
 
     if not confirmed:
-        print_info("Cancelled")
+        print_info("Cancelled.")
         return
 
     print_warning("Flushing database...")
@@ -87,7 +86,7 @@ def cmd_flush():
     success = run_command(["alembic", "upgrade", "head"], cwd=root)
 
     if success:
-        print_success("Database flushed and re-migrated")
+        print_success("Database flushed and re-migrated.")
     else:
-        print_error("Flush failed")
+        print_error("Flush failed.")
         sys.exit(1)

@@ -1,4 +1,5 @@
 import subprocess
+from pathlib import Path
 from typing import List, Optional
 
 from boundless_aiogram.core import Colors, print_colored
@@ -23,3 +24,17 @@ def pip_freeze(cwd: str) -> str:
         text=True,
     )
     return result.stdout
+
+
+def find_project_root() -> Optional[str]:
+    current = Path.cwd()
+    markers = [".boundless.yml", "main.py"]
+    while True:
+        for marker in markers:
+            if (current / marker).exists():
+                return str(current)
+        parent = current.parent
+        if parent == current:
+            break
+        current = parent
+    return None
